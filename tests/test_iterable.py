@@ -1,33 +1,24 @@
 from functools import wraps
 from nose.tools import *
-from dandelion.classes import Iterable, List
-
-class TestIterable(Iterable):
-    def __init__(self, l):
-        self.l = l
-
-    def __iter__(self):
-        for x in self.l:
-            yield x
+from dandelion.classes import List
 
 def prepare(f):
     @wraps(f)
     def internal():
-        x = TestIterable([1,2,3,4])
-        print(x)
+        x = List([1,2,3,4])
         f(x)
     return internal
 
 @prepare
 def test_concatenate(x):
-    y = TestIterable([5,6,7,8])
+    y = List([5,6,7,8])
     for i, x in enumerate(x.concatenate(y)):
         assert_equal(i+1, x)
 
 @prepare
 def test_concatenate_multiple(x):
-    y = TestIterable([5,6,7,8])
-    z = TestIterable([9,10])
+    y = List([5,6,7,8])
+    z = List([9,10])
     for i, x in enumerate(x.concatenate(y, z)):
         assert_equal(i+1, x)
 
@@ -37,12 +28,12 @@ def test_concatenate_none(x):
         assert_equal(i+1, x)
 
 def test_nth():
-    x = TestIterable(range(100))
+    x = List(range(100))
     for i in x.nth(2):
         assert_equal(i % 2, 0)
 
 def test_nth_1():
-    x = TestIterable(range(100))
+    x = List(range(100))
     for i, x in enumerate(x.nth(1)):
         assert_equal(i, x)
 

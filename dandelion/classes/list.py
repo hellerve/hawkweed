@@ -1,5 +1,7 @@
 """An augmented version of the list class"""
-class List(list):
+from dandelion.classes.iterable import Iterable
+
+class List(list, Iterable):
     """An augmented version of the list class"""
     def __repr__(self):
         """Returns a string of the form 'List(<contents>)"""

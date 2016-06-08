@@ -1,6 +1,8 @@
 """An augmented version of the dict class"""
 from dandelion.computed import PY3
-class Dict(dict):
+from dandelion.classes.iterable import Iterable
+
+class Dict(dict, Iterable):
     """An augmented version of the dict class"""
     def __repr__(self):
         """Returns a string of the form 'Dict(<contents>)"""
