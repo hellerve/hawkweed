@@ -8,6 +8,13 @@ def test_reset():
     reset = Dict({2: 1, 4: 3})
     assert_equal(Dict({1: 2, 3: 4}).reset(reset), reset)
 
+def test_clear():
+    assert_equal(Dict({1: 2, 3: 4}).clear(), Dict({}))
+
+def test_setdefault():
+    d = Dict({2: 1, 4: 3})
+    assert_equal(d.setdefault(1), d)
+
 def test_update():
     assert_equal(Dict({1: 2, 3: 4}).update({2: 3}), Dict({1: 2, 2: 3, 3: 4}))
 

@@ -1,13 +1,11 @@
 """An augmented version of the dict class"""
 from dandelion.computed import PY3
 from dandelion.classes.iterable import Iterable
+from dandelion.classes.repr import Repr
+from dandelion.classes.collection import Collection
 
-class Dict(dict, Iterable):
+class Dict(Repr, dict, Iterable, Collection):
     """An augmented version of the dict class"""
-    def __repr__(self):
-        """Returns a string of the form 'Dict(<contents>)"""
-        return "Dict({})".format(super(Dict, self).__repr__())
-
     def reset(self, other):
         """
         Resets a dict to another dicts content
@@ -82,3 +80,21 @@ class Dict(dict, Iterable):
         for key, val in iterator:
             acc = fun(acc, key, val)
         return acc
+
+    def clear(self):
+        """
+        Augmented clear function that returns self.
+
+        returns: self
+        """
+        super(Dict, self).clear()
+        return self
+
+    def setdefault(self, *args, **kwargs):
+        """
+        Augmented setdefault function that returns self.
+
+        returns: self
+        """
+        super(Dict, self).setdefault(*args, **kwargs)
+        return self

@@ -4,6 +4,21 @@ from nose.tools import *
 def test_clear():
     assert_equal(List([1,2]).clear(), List([]))
 
+def test_append():
+    assert_equal(List([1,2]).append(3), List([1, 2, 3]))
+
+def test_extend():
+    assert_equal(List([1,2]).extend([3]), List([1, 2, 3]))
+
+def test_get():
+    assert_equal(List([1]).get(0), 1)
+
+def test_get_not_in():
+    assert_equal(List([1]).get(1), None)
+
+def test_get_dflt():
+    assert_equal(List([1]).get(1, "dflt"), "dflt")
+
 def test_reset():
     reset = List([1])
     assert_equal(List([1, 2, 3, 4]).reset(reset), reset)

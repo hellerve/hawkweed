@@ -1,12 +1,10 @@
 """An augmented version of the list class"""
 from dandelion.classes.iterable import Iterable
+from dandelion.classes.repr import Repr
+from dandelion.classes.collection import Collection
 
-class List(list, Iterable):
+class List(Repr, list, Iterable, Collection):
     """An augmented version of the list class"""
-    def __repr__(self):
-        """Returns a string of the form 'List(<contents>)"""
-        return "List({})".format(super(List, self).__repr__())
-
     def reset(self, other):
         """
         Resets a list to another lists content
@@ -88,3 +86,34 @@ class List(list, Iterable):
         """
         del self[:]
         return self
+
+    def append(self, *args, **kwargs):
+        """
+        Augmented update function that returns self.
+
+        returns: self
+        """
+        super(List, self).append(*args, **kwargs)
+        return self
+
+    def extend(self, *args, **kwargs):
+        """
+        Augmented extend function that returns self.
+
+        returns: self
+        """
+        super(List, self).extend(*args, **kwargs)
+        return self
+
+    def get(self, index, dflt=None):
+        """
+        A getter function that behaves like dict.get.
+
+        params:
+            index: the index to get
+            dflt: the default return value (defaults to None)
+        returns: self
+        """
+        if len(self) > index:
+            return self[index]
+        return dflt

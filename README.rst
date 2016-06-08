@@ -14,9 +14,4 @@ Installation
 Usage
 -----
 
-::
-  
-  from dandelion import Dict, List
-
-  my_dict = Dict({"key": "val"})
-  my_dict.reverse() # gets you Dict({"val": "key"})
+Coming soon. Really.
