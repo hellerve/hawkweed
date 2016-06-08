@@ -1,6 +1,5 @@
 """An augmented version of the dict class"""
 from dandelion.computed import PY3
-
 class Dict(dict):
     """An augmented version of the dict class"""
     def __repr__(self):
