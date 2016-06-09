@@ -48,9 +48,7 @@ class List(Repr, list, Iterable, Collection):
             elem: the element that should be found
         returns: self
         """
-        i = len(self)
-        for find in reversed(self):
-            i -= 1
+        for i, find in enumerate(reversed(self)):
             if elem == find:
                 return i
         return -1
