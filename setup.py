@@ -15,7 +15,7 @@ setup(
     author = "Veit Heller",
     author_email = "veit@veitheller.de",
     license = "MIT License",
-    url = "https://github.com/hellerve/dandelion/",
+    url = "https://github.com/hellerve/hawkweed",
     packages = find_packages(),
     include_package_data = True,
 )
