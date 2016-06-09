@@ -10,7 +10,7 @@ with open('README.rst') as readme:
 setup(
     name = "dandelion",
     version = "0.0.1",
-    description = "Extending Python builtin types"
+    description = "Extending Python builtin types",
     long_description = long_description,
     author = "Veit Heller",
     author_email = "veit@veitheller.de",
