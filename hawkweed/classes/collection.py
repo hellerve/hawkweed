@@ -1,13 +1,17 @@
 """A collection base class"""
 class Collection():
     """A collection base class that introduces nested getting and setting"""
-    """The default value for get_in; normally None"""
-    DFLT = None
-    def get(*args, **kwargs):
-        raise NotImplemented("You need to implement get to use the Collection base class")
 
-    def __setelem__(*args, **kwargs):
-        raise NotImplemented("You need to implement __setelem__ to use the Collection base class")
+    #The default value for get_in; normally None
+    DFLT = None
+
+    def get(self, index, dflt=None):
+        """This method needs to be implemented to subclass Collection"""
+        raise NotImplementedError("You need to implement get to use the Collection base class")
+
+    def __setelem__(self, *args, **kwargs):
+        raise NotImplementedError("You need to implement __setelem__ to use the Collection \
+                                   base class")
 
     def get_in(self, *keys, **kwargs):
         """

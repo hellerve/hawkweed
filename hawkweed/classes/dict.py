@@ -1,8 +1,8 @@
 """An augmented version of the dict class"""
-from dandelion.computed import PY3
-from dandelion.classes.iterable import Iterable
-from dandelion.classes.repr import Repr
-from dandelion.classes.collection import Collection
+from hawkweed.computed import PY3
+from hawkweed.classes.iterable import Iterable
+from hawkweed.classes.repr import Repr
+from hawkweed.classes.collection import Collection
 
 class Dict(Repr, dict, Iterable, Collection):
     """An augmented version of the dict class"""
@@ -21,7 +21,8 @@ class Dict(Repr, dict, Iterable, Collection):
 
     def reverse(self):
         """
-        Exchanges keys and values; if there are duplicate values, the last value that's been written wins.
+        Exchanges keys and values; if there are duplicate values, the
+        last value that's been written wins.
 
         Complexity: O(2*n)
         returns: self
@@ -39,18 +40,19 @@ class Dict(Repr, dict, Iterable, Collection):
 
         Complexity: O(2*n)
         params:
-            fun: a function that takes an element and returns whether it should be kept (defaults to bool())
-            filter_keys: a flag that indicates that filtering should be done by keys, not by values
+            fun: a function that takes an element and returns whether it
+                 should be kept (defaults to bool())
+            filter_keys: a flag that indicates that filtering should be
+                         done by keys, not by values
         returns: self
         """
         if not fun:
             fun = bool
         tmp = dict()
         for key, val in self.items():
-            if filter_keys:
-                if fun(key): tmp[key] = val
-            else:
-                if fun(val): tmp[key] = val
+            checker = key if filter_keys else val
+            if fun(checker):
+                tmp[key] = val
         self.reset(tmp)
         del tmp
         return self
@@ -70,8 +72,10 @@ class Dict(Repr, dict, Iterable, Collection):
 
         Complexity: O(n)
         params:
-            fun: a function that takes the accumulator and current key and value and returns the new accumulator
-            acc: the initial accumulator (defaults to tuple of first key and value taken from the iterator)
+            fun: a function that takes the accumulator and current key
+                 and value and returns the new accumulator
+            acc: the initial accumulator (defaults to tuple of first
+                 key and value taken from the iterator)
         returns: self
         """
         iterator = self.items().__iter__()

@@ -1,4 +1,4 @@
-from dandelion.classes import List, Dict
+from hawkweed.classes import List, Dict
 from nose.tools import *
 
 def test_get_in():

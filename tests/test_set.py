@@ -1,4 +1,4 @@
-from dandelion.classes import Set
+from hawkweed.classes import Set
 from nose.tools import *
 
 def test_clear():

@@ -8,8 +8,8 @@ with open('README.rst') as readme:
     long_description = readme.read()
 
 setup(
-    name = "dandelion",
-    version = "0.0.1",
+    name = "hawkweed",
+    version = "0.0.2",
     description = "Extending Python builtin types",
     long_description = long_description,
     author = "Veit Heller",

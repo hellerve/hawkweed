@@ -1,4 +1,4 @@
-from dandelion.classes import Dict
+from hawkweed.classes import Dict
 from nose.tools import *
 
 def test_reverse():

@@ -1,6 +1,6 @@
 from functools import wraps
 from nose.tools import *
-from dandelion.classes import List
+from hawkweed.classes import List
 
 def prepare(f):
     @wraps(f)

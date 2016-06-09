@@ -1,6 +1,5 @@
 """An augmented version of the set type."""
-from dandelion.classes.iterable import Iterable
-from dandelion.classes.repr import Repr
+from hawkweed.classes.repr import Repr
 
 class Set(Repr, set):
     """An augmented version of the set type."""
@@ -23,7 +22,8 @@ class Set(Repr, set):
 
         Complexity: O(n+k) where k is the number of things to remove
         params:
-            fun: a function that takes an element and returns whether it should be kept (defaults to bool())
+            fun: a function that takes an element and returns whether
+                 it should be kept (defaults to bool())
         returns: self
         """
         if not fun:

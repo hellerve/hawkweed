@@ -1,7 +1,7 @@
 """An augmented version of the list class"""
-from dandelion.classes.iterable import Iterable
-from dandelion.classes.repr import Repr
-from dandelion.classes.collection import Collection
+from hawkweed.classes.iterable import Iterable
+from hawkweed.classes.repr import Repr
+from hawkweed.classes.collection import Collection
 
 class List(Repr, list, Iterable, Collection):
     """An augmented version of the list class"""
@@ -24,7 +24,8 @@ class List(Repr, list, Iterable, Collection):
 
         Complexity: O(3*n)
         params:
-            fun: a function that takes an element and returns whether it should be kept (defaults to bool())
+            fun: a function that takes an element and returns whether it
+                 should be kept (defaults to bool())
         returns: self
         """
         if not fun:
@@ -61,8 +62,24 @@ class List(Repr, list, Iterable, Collection):
         params:
             n: the upper limit of the generator slice
         """
-        for elem in self[:n]:
+        for i, elem in enumerate(self):
+            if n <= i:
+                break
             yield elem
+
+    def take_while(self, fun):
+        """
+        A generator that returns elements while a given function fun returns True.
+
+        Complexity: O(n)
+        params:
+            fun: the predicate function
+        """
+        for elem in self:
+            if fun(elem):
+                yield elem
+            else:
+                break
 
     def drop(self, n):
         """
@@ -73,6 +90,22 @@ class List(Repr, list, Iterable, Collection):
             n: the lower limit of the generator slice
         """
         for elem in self[n:]:
+            yield elem
+
+    def drop_while(self, fun):
+        """
+        A generator that skips elements while a given function fun returns True.
+
+        Complexity: O(n+k)
+        params:
+            fun: the predicate function
+        """
+        i = 0
+        for i, elem in enumerate(self):
+            if not fun(elem):
+                break
+
+        for elem in self[i:]:
             yield elem
 
     def clear(self):

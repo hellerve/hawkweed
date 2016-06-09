@@ -1,4 +1,4 @@
-from dandelion.classes import List
+from hawkweed.classes import List
 from nose.tools import *
 
 def test_clear():
@@ -42,4 +42,19 @@ def test_drop():
 def test_drop_iterate():
     dropped = 5
     for i, e in enumerate(List(range(10)).drop(dropped)):
+        assert_equal(i + dropped, e)
+
+def test_take_while():
+    assert_equal(List(List(range(10)).take_while(lambda x: x < 5)), List(range(5)))
+
+def test_take_while_iterate():
+    for i, e in enumerate(List(range(10)).take_while(lambda x: x < 5)):
+        assert_equal(i, e)
+
+def test_drop_while():
+    assert_equal(List(List(range(10)).drop_while(lambda x: x < 5)), List(range(5,10)))
+
+def test_drop_while_iterate():
+    dropped = 5
+    for i, e in enumerate(List(range(10)).drop_while(lambda x: x < dropped)):
         assert_equal(i + dropped, e)
