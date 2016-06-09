@@ -6,6 +6,9 @@ class Collection():
     def get(*args, **kwargs):
         raise NotImplemented("You need to implement get to use the Collection base class")
 
+    def __setelem__(*args, **kwargs):
+        raise NotImplemented("You need to implement __setelem__ to use the Collection base class")
+
     def get_in(self, *keys, **kwargs):
         """
         A getter for deeply nested values.
