@@ -34,3 +34,46 @@ def any(fun, values):
         if fun(element):
             return True
     return False
+
+def and_(x, y):
+    """Wraps the logical and function."""
+    return x and y
+
+def or_(x, y):
+    """Wraps the logical and function."""
+    return x or y
+
+def not_(x):
+    """Wraps the logical not function."""
+    return not x
+
+@curry
+def complement(fun, *args, **kwargs):
+    """
+    Takes a function and it's args and returns it's complement.
+
+    Complexity: O(1)
+    params:
+        fun: the function to complement
+        *args: the arguments that should be passed to the function
+        **kwaargs: the keyword arguments that should be passed to the function
+    """
+    return not fun(*args, **kwargs)
+
+def false():
+    """
+    Always returns False.
+
+    Complexity: O(1)
+    returns: False
+    """
+    return False
+
+def true():
+    """
+    Always returns True.
+
+    Complexity: O(1)
+    returns: True
+    """
+    return True
