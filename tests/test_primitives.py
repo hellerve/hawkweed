@@ -1,4 +1,5 @@
 import time
+import math
 from nose.tools import *
 from hawkweed.functional.primitives import *
 
@@ -67,3 +68,8 @@ def test_delay():
     x()
     after2 = time.clock()
     assert_true((after1 - before1) > (after2 - before2))
+
+def test_flip():
+    test = lambda x, y: [x, y]
+    args = [1, 2]
+    assert_equal(apply(flip(test), args), list(reversed(args)))

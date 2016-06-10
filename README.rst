@@ -60,7 +60,7 @@ datatype, this implementation will return ``self`` to allow for chaining.
       "foo": List([1, 2, 3, Dict({"bar": "baz"})])
     }).update_in("foo", 1, "bar", to="update") # => Dict({"foo": List([1, 2, 3, Dict({"bar": "update"})])})
     # if you want to insert your own datatype, just inherit from hawkweed.Collection
-    # and implement get(key, dflt=None) and __setelem__
+    # and implement get(key, dflt=None) and __setitem__
 
 Functions
 ---------
@@ -84,8 +84,8 @@ on hawkweeds datatypes in any way.
   # it will cache the result instead of recomputing it upon reevaluation, i.e. `delayed() and delayed()` will only print 'Hello, World!' once
 
 A few other functions that you might expect from a functional programming library (``compose``,
-``pipe``, ``identity``, ``apply`` and the like) are also implemented. They should be intuitive
-and work as expected. If they do not or are not consider it a bug.
+``pipe``, ``identity``, ``apply``, ``flip``, ``curry`` and the like) are also implemented. They
+should be intuitive and work as expected. If they do not or are not consider it a bug.
 
 
 

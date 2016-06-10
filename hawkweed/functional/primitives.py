@@ -161,3 +161,18 @@ def delay(fun, *args, **kwargs):
             _int[0] = fun(*args, **kwargs)
         return _int[0]
     return internal
+
+@curry
+def flip(fun, first, second, *args):
+    """
+    Takes a function and applies its arguments in reverse order.
+
+    params:
+        fun: the function
+        first: the first argument
+        second: the second argument
+        args: the remaining args (this weird first, second, args thing
+              is there to prevent preemptive passing of arguments)
+    returns: the result of the function fun
+    """
+    return apply(fun, reversed(args + (first, second)))

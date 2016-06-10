@@ -9,8 +9,8 @@ class Collection():
         """This method needs to be implemented to subclass Collection"""
         raise NotImplementedError("You need to implement get to use the Collection base class")
 
-    def __setelem__(self, *args, **kwargs):
-        raise NotImplementedError("You need to implement __setelem__ to use the Collection \
+    def __setitem__(self, *args, **kwargs):
+        raise NotImplementedError("You need to implement __setitem__ to use the Collection \
                                    base class")
 
     def get_in(self, *keys, **kwargs):
