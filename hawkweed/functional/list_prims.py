@@ -50,6 +50,7 @@ def remove_from(index, element):
         element: an element that implements __delitem__
     """
     del element[index]
+    return element
 
 @curry
 def remove_from_keep(index, element):

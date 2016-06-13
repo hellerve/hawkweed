@@ -14,9 +14,10 @@ Installation
 Usage
 -----
 
-hawkweed is roughly divided into two different parts: datatypes and functions.
-All the functions are exhaustively documented with pydoc, all the parameters,
-the functions' time complexity (if applicable) and the return value are given.
+hawkweed is roughly divided into three different parts: datatypes, monads and
+functions. All the functions are exhaustively documented with pydoc, all the
+parameters, the functions' time complexity (if applicable) and the return value
+are given.
 
 Datatypes
 ---------
@@ -88,6 +89,29 @@ A few other functions that you might expect from a functional programming librar
 ``pipe``, ``identity``, ``apply``, ``flip``, ``curry`` and the like) are also implemented. They
 should be intuitive and work as expected. If they do not or are not consider it a bug.
 
+Monads
+------
+
+The implemented monads are: Identity, Maybe (Just/Nothing), Continuation
+and List (called ListM). do notation is also supported.
+
+.. code-block:: python
+
+  from hawkweed import *
+
+  def doMe():
+    res1 = yield Just(1)
+    res2 = yield Just(10)
+    yield Just(res1+ res2)
+
+  doM(doMe()) # => Just(11)
+  
+  wrapM(Just(10)).real
+  # => 10; the wrapper will try to call the wrapped values' function whenever it does not exist in the monad
+
+There is a callcc function and all of the functions in Haskell's Data.Maybe_ are implemented.
+
+.. _Data.Maybe: https://hackage.haskell.org/package/base-4.9.0.0/docs/Data-Maybe.html
 
 
 Have fun!

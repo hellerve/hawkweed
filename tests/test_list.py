@@ -58,3 +58,6 @@ def test_drop_while_iterate():
     dropped = 5
     for i, e in enumerate(List(range(10)).drop_while(lambda x: x < dropped)):
         assert_equal(i + dropped, e)
+
+def test_rindex():
+    assert_equal(List(range(10)).rindex(8), 1)
