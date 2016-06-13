@@ -54,16 +54,16 @@ class List(Repr, list, Iterable, Collection):
                 return i
         return -1
 
-    def take(self, n):
+    def take(self, num):
         """
-        A generator that returns a subarray (from 0 to n).
+        A generator that returns a subarray (from 0 to num).
 
         Complexity: O(n+k) where k is the param
         params:
-            n: the upper limit of the generator slice
+            num: the upper limit of the generator slice
         """
         for i, elem in enumerate(self):
-            if n <= i:
+            if num <= i:
                 break
             yield elem
 
@@ -81,15 +81,15 @@ class List(Repr, list, Iterable, Collection):
             else:
                 break
 
-    def drop(self, n):
+    def drop(self, num):
         """
-        A generator that returns a subarray (from n to len(List)).
+        A generator that returns a subarray (from num to len(List)).
 
         Complexity: O(n+k) where k is the param
         params:
-            n: the lower limit of the generator slice
+            num: the lower limit of the generator slice
         """
-        for elem in self[n:]:
+        for elem in self[num:]:
             yield elem
 
     def drop_while(self, fun):

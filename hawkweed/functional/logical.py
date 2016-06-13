@@ -35,17 +35,19 @@ def any(fun, values):
             return True
     return False
 
-def and_(x, y):
+@curry
+def and_(fst, snd):
     """Wraps the logical and function."""
-    return x and y
+    return fst and snd
 
-def or_(x, y):
+@curry
+def or_(fst, snd):
     """Wraps the logical and function."""
-    return x or y
+    return fst or snd
 
-def not_(x):
+def not_(val):
     """Wraps the logical not function."""
-    return not x
+    return not val
 
 @curry
 def complement(fun, *args, **kwargs):

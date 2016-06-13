@@ -102,3 +102,21 @@ class Dict(Repr, dict, Iterable, Collection):
         """
         super(Dict, self).setdefault(*args, **kwargs)
         return self
+
+    def pick(self, *keys):
+        """
+        Takes a list of keys to pick and returns a subdict that contains
+        only those entries.
+
+        Complexity: O(k) where k is the number of keys
+        params:
+            *keys: the keys to pick
+        returns: the subdict
+        """
+        newd = {}
+
+        for key in keys:
+            if key in self:
+                newd[key] = self[key]
+
+        return newd

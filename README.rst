@@ -42,7 +42,8 @@ datatype, this implementation will return ``self`` to allow for chaining.
     Dict({1: 2, 3: 4, None: "go away"}).remove_empty(filter_keys=True) # => Dict({1: 2, 3: 4})
     Dict({1: 2, 3: 4, 2: 3}).remove_empty(fun=lambda x: x!=2) # => Dict({1: 2, 3: 4})
     Dict({1: 2, 3: 4}).reduce(fun=lambda acc, k, v: acc + k + v, acc=0) # => 10
-    Dict({1: 2, 3: 4}).reduce(fun=lambda acc, k, v: acc + (k, v), ) # => (1, 2, 3, 4)
+    Dict({1: 2, 3: 4}).reduce(fun=lambda acc, k, v: acc + (k, v)) # => (1, 2, 3, 4)
+    Dict({1: 2, 3: 4, 5: 6}).pick(1, 5) # => Dict({1: 2, 5: 6})
 
     Set({1, 2, 3, 4}).remove_empty(fun=lambda x: x!=3) # => Set({1, 2, 4})
 

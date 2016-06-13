@@ -32,3 +32,7 @@ def test_reduce():
 
 def test_reduce_no_acc():
     assert_equal(Dict({1: 2, 3: 4}).reduce(lambda acc, k, v: acc + (k, v)), (1, 2, 3, 4))
+
+def test_pick():
+    d = Dict({1: 2, 3: 4, 5: 6})
+    assert_equal(d.pick(1, 5), Dict({1: 2, 5: 6}))

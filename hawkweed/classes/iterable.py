@@ -22,20 +22,20 @@ class Iterable():
                     yield elem
         return internal()
 
-    def nth(self, n):
+    def nth(self, num):
         """
         Returns an Iterable that will only yield every nth value.
 
         Complexity: O(1)
         params:
-            n: the step size
+            num: the step size
         returns: the new Iterable
         """
-        if n < 1:
-            raise ValueError("step size must be bigger than 0, was {}".format(n))
+        if num < 1:
+            raise ValueError("step size must be bigger than 0, was {}".format(num))
         def internal():
             """the internal iterator"""
             for i, elem in enumerate(self):
-                if i % n == 0:
+                if i % num == 0:
                     yield elem
         return internal()

@@ -1,52 +1,52 @@
 """A few mathematical functions"""
 from hawkweed.functional.primitives import curry
 
-def inc(n):
+def inc(num):
     """
     A function that increments its argument by 1.
 
     Complexity: O(1)
     params:
-        n: the number to increment
+        num: the number to increment
     returns: the incremented number
     """
-    return n + 1
+    return num + 1
 
-def dec(n):
+def dec(num):
     """
     A function that decrements its argument by 1.
 
     Complexity: O(1)
     params:
-        n: the number to decrement
+        num: the number to decrement
     returns: the decremented number
     """
-    return n - 1
+    return num - 1
 
 @curry
-def add(x, y):
+def add(fst, snd):
     """This is a functional wrapper around the + operator"""
-    return x + y
+    return fst + snd
 
 @curry
-def sub(x, y):
+def sub(fst, snd):
     """This is a functional wrapper around the - operator"""
-    return x - y
+    return fst - snd
 
 @curry
-def mul(x, y):
+def mul(fst, snd):
     """This is a functional wrapper around the * operator"""
-    return x * y
+    return fst * snd
 
 @curry
-def div(x, y):
+def div(fst, snd):
     """This is a functional wrapper around the / operator"""
-    return x / y
+    return fst / snd
 
 @curry
-def mod(x, y):
+def mod(fst, snd):
     """This is a functional wrapper around the % operator"""
-    return x % y
+    return fst % snd
 
 @curry
 def clamp(frm, to, value):
