@@ -4,3 +4,4 @@ from hawkweed.monads.listm import *
 from hawkweed.monads.continuation import *
 from hawkweed.monads.identity import *
 from hawkweed.monads.maybe import *
+from hawkweed.monads.io import *
