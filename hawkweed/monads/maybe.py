@@ -2,8 +2,15 @@
 from hawkweed.functional.list_prims import first
 from hawkweed.monads.monad import Monad
 
-class Just(Monad):
+class Maybe(Monad):
+    """The Maybe abstract base class"""
+    def __init__(self, value):
+        raise NotImplementedError("please use the type instances Just or Nothing")
+
+class Just(Maybe):
     """The Just monad"""
+    def __init__(self, value):
+        self.value = value
 
     def bind(self, fun):
         """
@@ -18,12 +25,10 @@ class Just(Monad):
         """
         return fun(self.value)
 
-class Nothing(Monad):
+class Nothing(Maybe):
     """The Nothing monad"""
-
     def __init__(self):
         self.value = None
-        super(Nothing, self).__init__(self.value)
 
     def bind(self, fun):
         """

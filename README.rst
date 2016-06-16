@@ -22,9 +22,11 @@ are given.
 Datatypes
 ---------
 
-All of the datatypes implemented in hawkweed are mere wrappers around Python
+Most of the datatypes implemented in hawkweed are mere wrappers around Python
 standard datatypes. If the function does not return anything in the Python
 datatype, this implementation will return ``self`` to allow for chaining.
+
+A notable exception is the largely unstable and undocumented ``Future`` class.
 
 .. code-block:: python
 
@@ -92,7 +94,7 @@ should be intuitive and work as expected. If they do not or are not consider it 
 Monads
 ------
 
-The implemented monads are: Identity, Maybe (Just/Nothing), Continuation
+The implemented monads are: Identity, Maybe (Just/Nothing), Continuation, Either, IO, CachedIO,
 and List (called ListM). do notation is also supported.
 
 .. code-block:: python
@@ -109,9 +111,10 @@ and List (called ListM). do notation is also supported.
   wrapM(Just(10)).real
   # => 10; the wrapper will try to call the wrapped values' function whenever it does not exist in the monad
 
-There is a callcc function and all of the functions in Haskell's Data.Maybe_ are implemented.
+There is a callcc function and all of the functions in Haskell's Data.Maybe_ and Data.Either_ are implemented.
 
 .. _Data.Maybe: https://hackage.haskell.org/package/base-4.9.0.0/docs/Data-Maybe.html
+.. _Data.Either: https://hackage.haskell.org/package/base-4.9.0.0/docs/Data-Either.html
 
 
 Have fun!

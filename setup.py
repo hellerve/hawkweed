@@ -9,14 +9,14 @@ with open('README.rst') as readme:
 
 setup(
     name = "hawkweed",
-    version = "0.0.6",
+    version = "0.0.7",
     description = "Extending Python builtin types",
     long_description = long_description,
     author = "Veit Heller",
     author_email = "veit@veitheller.de",
     license = "MIT License",
     url = "https://github.com/hellerve/hawkweed",
-    download_url = 'https://github.com/hellerve/hawkweed/tarball/0.0.6',
+    download_url = 'https://github.com/hellerve/hawkweed/tarball/0.0.7',
     packages = find_packages(),
     include_package_data = True,
 )
