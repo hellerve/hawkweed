@@ -22,3 +22,13 @@ def test_remove_from_keep():
     x = [1, 2, 3]
     assert_equal(remove_from_keep(2, x), [1, 2])
     assert_equal(x, [1, 2, 3])
+
+def test_aperture():
+    x = [1, 2, 3]
+    assert_equal(list(aperture(2, x)), [[1, 2], [2, 3]])
+
+def test_aperture_empty():
+    assert_equal(list(aperture(2, [])), [])
+
+def test_aperture_bigger_n():
+    assert_equal(list(aperture(2, [1])), [])
