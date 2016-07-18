@@ -30,7 +30,7 @@ A notable exception is the largely unstable and undocumented ``Future`` class.
 
 .. code-block:: python
 
-    from hawkweed import *
+    from hawkweed import List, Dict, Set
 
     List([1]).append(2).extend([3, None, 4]).remove_empty() # => List([1, 2, 3, 4])
     List(range(10)).take(5) # => generator from 0 to 4
@@ -74,12 +74,12 @@ on hawkweeds datatypes in any way.
 
 .. code-block:: python
 
-  from hawkweed import *
+  from hawkweed import map, reduce, List, all, any, constantly, delay
 
   map(inc, range(100)) # => range(1, 101)
   incrementor = map(inc)
   incrementor(List(range(100))) # => range(1, 101)
-  summator= reduce(add)
+  summator = reduce(add)
   summator(range(5)) # => 10
   all(lambda x: x > 100, [101, 102, 103]) # => True
   any(lambda x: x > 10, [3, 5, 8]) # => False
@@ -99,7 +99,7 @@ and List (called ListM). do notation is also supported.
 
 .. code-block:: python
 
-  from hawkweed import *
+  from hawkweed import doM, wrapM, Just
 
   def doMe():
     res1 = yield Just(1)
