@@ -1,4 +1,4 @@
 echo [i] Running tests against Python 2.7
-nosetests $@
-echo [i] Running tests against Python 3.4
-nosetests-3.4 $@
+python2.7 hawkweed-py.test $@
+echo [i] Running tests against Python 3.5
+python3.5 hawkweed-py.test $@

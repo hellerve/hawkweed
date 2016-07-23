@@ -1,5 +1,5 @@
 from functools import wraps
-from nose.tools import *
+from nose.tools import assert_equal, raises
 from hawkweed.classes import List
 
 def prepare(f):
