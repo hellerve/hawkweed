@@ -4,6 +4,9 @@ from hawkweed.functional.list_prims import *
 def test_first():
     assert_equal(first([1]), 1)
 
+def test_rest():
+    assert_equal(rest([1, 2, 3]), [2, 3])
+
 def test_second():
     assert_equal(second([1, 2]), 2)
 

@@ -11,6 +11,15 @@ def first(element):
     """
     return element[0]
 
+def rest(element):
+    """
+    A wrapper around element[1:].
+
+    params:
+        element: an element that implements __getitem__
+    """
+    return element[1:]
+
 def second(element):
     """
     A wrapper around element[1].

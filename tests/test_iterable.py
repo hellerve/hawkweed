@@ -1,9 +1,8 @@
 from functools import wraps
-from nose.tools import assert_equal, raises
+from nose.tools import assert_equal, assert_raises
 from hawkweed.classes import List
 
 def prepare(f):
-    @wraps(f)
     def internal():
         x = List([1,2,3,4])
         f(x)

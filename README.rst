@@ -85,7 +85,7 @@ on hawkweeds datatypes in any way.
   any(lambda x: x > 10, [3, 5, 8]) # => False
   constantly(10) # => an infinite generator of 10
   delayed = delay(print, 'Hello, World!') # => this will return a variable that, when called, will compute the result of print with the argument 'Hello, World!'
-  # it will cache the result instead of recomputing it upon reevaluation, i.e. `delayed() and delayed()` will only print 'Hello, World!' once
+  # it will cache the result instead of recomputing it upon reevaluation, i.e. `delayed() or delayed()` will only print 'Hello, World!' once
 
 A few other functions that you might expect from a functional programming library (``compose``,
 ``pipe``, ``identity``, ``apply``, ``flip``, ``curry`` and the like) are also implemented. They
