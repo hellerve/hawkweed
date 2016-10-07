@@ -16,7 +16,7 @@ setup(
     author_email = "veit@veitheller.de",
     license = "MIT License",
     url = "https://github.com/hellerve/hawkweed",
-    download_url = 'https://github.com/hellerve/hawkweed/tarball/0.1.2',
+    download_url = 'https://github.com/hellerve/hawkweed/tarball/0.1.3',
     packages = find_packages(),
     include_package_data = True,
 )
