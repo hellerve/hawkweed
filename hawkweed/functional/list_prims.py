@@ -92,3 +92,32 @@ def aperture(n, l):
     while index < stop:
         yield l[index:index+n]
         index += 1
+
+@curry
+def get_attr(attr, element):
+    """
+    Like get, but for attributes.
+
+    Complexity: O(1)
+    params:
+        attr: the attribute to get
+        element: the element to search
+    returns: the attribute
+    """
+    return getattr(element, attr)
+
+@curry
+def take(n, l):
+    """
+    Takes n elements from the list l.
+
+    Complexity: O(n)
+    params:
+        n: the number of elements to take
+        l: the list to take from
+    returns: a generator object
+    """
+    index = 0
+    while index < n:
+        yield l[index]
+        index += 1

@@ -35,3 +35,12 @@ def test_aperture_empty():
 
 def test_aperture_bigger_n():
     assert_equal(list(aperture(2, [1])), [])
+
+def test_take():
+    assert_equal(list(take(5, list(range(10)))), list(range(5)))
+
+def test_getattr():
+    class T():
+        no = 1
+
+    assert_equal(get_attr("no")(T()), 1)

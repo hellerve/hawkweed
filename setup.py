@@ -9,7 +9,7 @@ with open('README.rst') as readme:
 
 setup(
     name = "hawkweed",
-    version = "0.1.2",
+    version = "0.1.3",
     description = "Extending Python builtin types",
     long_description = long_description,
     author = "Veit Heller",

@@ -2,6 +2,7 @@ import time
 import math
 from nose.tools import *
 from hawkweed.functional.primitives import *
+from hawkweed.functional.mathematical import add, inc
 
 def test_curry():
     assert_equal(curry(lambda x, y: x + y)(1)(2), 3)
@@ -73,3 +74,9 @@ def test_flip():
     test = lambda x, y: [x, y]
     args = [1, 2]
     assert_equal(apply(flip(test), args), list(reversed(args)))
+
+def test_starcompose():
+    assert_equal(starcompose(add, map(inc))([1, 2]), 5)
+
+def test_starpipe():
+    assert_equal(starpipe(map(inc), add)([1, 2]), 5)

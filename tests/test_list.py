@@ -61,3 +61,9 @@ def test_drop_while_iterate():
 
 def test_rindex():
     assert_equal(List(range(10)).rindex(8), 1)
+
+def test_flatten():
+    assert_equal(List([[0], [1, 2], []]).flatten(), [0, 1, 2])
+
+def test_flatten_deeply():
+    assert_equal(List([[1], [2], 3, [4, [5]]]).flatten(), list(range(1, 6)))

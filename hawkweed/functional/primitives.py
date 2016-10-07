@@ -102,6 +102,37 @@ def compose(*funs):
     """
     return apply(pipe, reversed(funs))
 
+def starpipe(*funs):
+    """
+    composes a bunch of functions. They will be applied one after the other.
+    The arguments will be passed as star args.
+
+    Complexity: depends on the given functions
+    params:
+        *funs: the functions that should be chained
+    returns: the chained function
+    """
+    def internal(*args, **kwargs):
+        """The internal piping function"""
+        return reduce(lambda acc, fun: fun(*acc),
+                      funs[0](*args, **kwargs),
+                      funs[1:])
+    return internal
+
+def starcompose(*funs):
+    """
+    composes a bunch of functions. They will be applied in reverse order
+    (so this function is the reverse of starpipe). Like in starpipe, arguments
+    will be passed as starargs.
+
+    Complexity: depends on the given functions
+    params:
+        *funs: the functions that should be chained
+    returns: the chained function
+    """
+    return apply(starpipe, reversed(funs))
+
+
 def identity(value):
     """
     The identity function. Takes a value and returns it.

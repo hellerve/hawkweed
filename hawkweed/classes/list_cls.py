@@ -148,3 +148,20 @@ class List(Repr, list, Iterable, Collection):
         if len(self) > index:
             return self[index]
         return dflt
+
+    def flatten(self):
+        """
+        Returns a new deeply flattened list.
+
+        Complexity: O(n)
+        returns: the flattened list
+        """
+        flattened = []
+        for item in self:
+            if isinstance(item, List):
+                flattened.extend(item.flatten())
+            elif isinstance(item, list):
+                flattened.extend(List(item).flatten())
+            else:
+                flattened.append(item)
+        return flattened
