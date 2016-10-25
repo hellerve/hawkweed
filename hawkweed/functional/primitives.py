@@ -41,6 +41,21 @@ def map(fun, values):
     return (fun(value) for value in values)
 
 @curry
+def filter(fun, value):
+    """
+    A function that filters a list of values by a predicate function and returns
+    a generator.
+
+    Complexity: O(n*k) where k is the complexity of the given function
+    params:
+        fun: the fucntion that should be applied
+        values: the list of values we should filter
+    returns:
+        the new generator
+    """
+    return (value for value in values if fun(value))
+
+@curry
 def reduce(fun, init, values=None):
     """
     A function that reduces a list to a single value using a given function.
