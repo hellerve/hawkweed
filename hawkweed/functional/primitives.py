@@ -41,7 +41,7 @@ def map(fun, values):
     return (fun(value) for value in values)
 
 @curry
-def filter(fun, value):
+def filter(fun, values):
     """
     A function that filters a list of values by a predicate function and returns
     a generator.
