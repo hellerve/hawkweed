@@ -79,6 +79,15 @@ class Future(Repr):
         return "Future({})".format(self.value)
 
     def apply(self, fun):
+        """
+        Apply a transformation function fun to the future value.
+
+        Complexity: Application O(1), Execution O(fun)
+        params:
+            fun: the function to apply
+        returns:
+            a Future
+        """
         self.transforms.append(fun)
         return self
 
