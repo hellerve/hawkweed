@@ -85,7 +85,7 @@ def aperture(n, l):
     params:
         n: the slice size
         l: the list we should create the generator from
-    returns the generator
+    returns: the generator
     """
     index = 0
     stop = len(l) - dec(n)
